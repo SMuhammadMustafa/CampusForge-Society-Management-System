@@ -9,7 +9,7 @@ namespace WindowsFormsApp1
 {
     public partial class Final_Approve : Form
     {
-        private string connectionString = "Data Source=Strix-15\\SQLEXPRESS;Initial Catalog=users;Integrated Security=True";
+        private string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
 
 
         string username = null;

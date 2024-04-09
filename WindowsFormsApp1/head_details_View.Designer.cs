@@ -161,6 +161,7 @@
             this.txtsocietyhead.Name = "txtsocietyhead";
             this.txtsocietyhead.Size = new System.Drawing.Size(324, 49);
             this.txtsocietyhead.TabIndex = 49;
+            this.txtsocietyhead.TextChanged += new System.EventHandler(this.txtsocietyhead_TextChanged_1);
             // 
             // label2
             // 

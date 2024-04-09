@@ -18,6 +18,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.username = username;
+
+            textBox1.Text = username.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,7 +57,6 @@ namespace WindowsFormsApp1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-            textBox1.Text = username;
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -67,6 +68,39 @@ namespace WindowsFormsApp1
         {
             firstpage loginForm = new firstpage();
             loginForm.Show();
+            this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            addmembers login = new  addmembers(username);
+            login.Show();
+            this.Hide();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Approve_Members login = new Approve_Members(username);
+            login.Show();
+            this.Hide();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ShowMembers login = new ShowMembers(username);
+            login.Show();
+            this.Hide();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Meeting log = new Meeting(username);
+            log.Show();
             this.Hide();
         }
     }

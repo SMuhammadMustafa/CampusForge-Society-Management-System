@@ -20,22 +20,19 @@ namespace WindowsFormsApp1
             username = u;
             InitializeComponent();
 
-            // Populate comboBox1 with approved societies
             PopulateApprovedSocieties();
 
-            // Subscribe to the SelectedIndexChanged event
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
         }
 
 
         private void head_details_View_Load(object sender, EventArgs e)
         {
-            // Add any initialization code here
         }
 
         private void PopulateApprovedSocieties()
         {
-            string connectionString = "Data Source=Strix-15\\SQLEXPRESS;Initial Catalog=users;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
             string query = $"SELECT societyname FROM Societies WHERE status = 'Approved' AND societyhead = '{username}';";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -55,7 +52,7 @@ namespace WindowsFormsApp1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedSociety = comboBox1.SelectedItem.ToString();
-            string connectionString = "Data Source=Strix-15\\SQLEXPRESS;Initial Catalog=users;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
             string query = $"SELECT societyhead, societycontact, societywise, societyRules, societymentor FROM Societies WHERE societyname = '{selectedSociety}' AND status = 'Approved';";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -136,6 +133,11 @@ namespace WindowsFormsApp1
             Main loginForm = new Main(username);
             loginForm.Show();
             this.Hide();
+        }
+
+        private void txtsocietyhead_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

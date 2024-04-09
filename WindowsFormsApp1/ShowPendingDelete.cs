@@ -7,7 +7,7 @@ namespace WindowsFormsApp1
 {
     public partial class ShowPendingDelete : Form
     {
-        private string connectionString = "Data Source=Strix-15\\SQLEXPRESS;Initial Catalog=users;Integrated Security=True";
+        private string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
 
         
         public ShowPendingDelete()
@@ -15,19 +15,17 @@ namespace WindowsFormsApp1
             InitializeComponent();
             PopulateDataGridView();
 
-            // Manually bind the dataGridView1_CellContentClick event handler
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
         }
 
         private void ShowPendingDelete_Load(object sender, EventArgs e)
         {
-            // Method implementation
         }
 
 
         private void PopulateDataGridView()
         {
-            dataGridView1.Columns.Clear(); // Clear existing columns before populating
+            dataGridView1.Columns.Clear(); 
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -38,7 +36,6 @@ namespace WindowsFormsApp1
 
                 adapter.Fill(table);
 
-                // Add a button column for review if not already added
                 if (dataGridView1.Columns["ReviewButton"] == null)
                 {
                     DataGridViewButtonColumn reviewButtonColumn = new DataGridViewButtonColumn();
@@ -49,7 +46,6 @@ namespace WindowsFormsApp1
                     dataGridView1.Columns.Add(reviewButtonColumn);
                 }
 
-                // Bind the data to the DataGridView
                 dataGridView1.DataSource = table;
             }
         }
@@ -60,10 +56,8 @@ namespace WindowsFormsApp1
             {
                 string societyName = dataGridView1.Rows[e.RowIndex].Cells["Society_Name"].Value.ToString();
 
-                // Open the review form
                 Decide_Pending_delete reviewForm = new Decide_Pending_delete(societyName);
 
-                // Populate the form with society information
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     string query = "SELECT s.societyname, s.head, s.reason " +
@@ -75,7 +69,6 @@ namespace WindowsFormsApp1
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                        // Populate the form with the fetched data
                         reviewForm.txtsocietyname.Text = reader["societyname"].ToString();
                         reviewForm.txtHeadname.Text = reader["head"].ToString();
                         reviewForm.txtReason.Text = reader["reason"].ToString();

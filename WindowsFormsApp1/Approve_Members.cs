@@ -8,7 +8,7 @@ namespace WindowsFormsApp1
 {
     public partial class Approve_Members : Form
     {
-        private string connectionString = "Data Source=Strix-15\\SQLEXPRESS;Initial Catalog=users;Integrated Security=True";
+        private string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
         string username;
         public Approve_Members(string username)
         {   

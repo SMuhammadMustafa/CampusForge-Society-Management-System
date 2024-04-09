@@ -127,6 +127,7 @@
             this.checkbxShowPas.TabIndex = 60;
             this.checkbxShowPas.Text = "Show Password";
             this.checkbxShowPas.UseVisualStyleBackColor = true;
+            this.checkbxShowPas.CheckedChanged += new System.EventHandler(this.checkbxShowPas_CheckedChanged);
             // 
             // txtcompassword
             // 

@@ -149,6 +149,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addmembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addmembers.Designer.cs">
+      <DependentUpon>addmembers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_details.Designer.cs">
+      <DependentUpon>add_details.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,11 +173,29 @@
     <Compile Include="adminMenu.Designer.cs">
       <DependentUpon>adminMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="admin_members_view.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin_members_view.Designer.cs">
+      <DependentUpon>admin_members_view.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin_Society_details.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="admin_Society_details.Designer.cs">
       <DependentUpon>admin_Society_details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="applyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="applyForm.Designer.cs">
+      <DependentUpon>applyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Approve_Members.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Approve_Members.Designer.cs">
+      <DependentUpon>Approve_Members.cs</DependentUpon>
     </Compile>
     <Compile Include="decide.cs">
       <SubType>Form</SubType>
@@ -191,6 +221,12 @@
     <Compile Include="Delete_Society.Designer.cs">
       <DependentUpon>Delete_Society.cs</DependentUpon>
     </Compile>
+    <Compile Include="Final_Approve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Final_Approve.Designer.cs">
+      <DependentUpon>Final_Approve.cs</DependentUpon>
+    </Compile>
     <Compile Include="firstpage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +238,48 @@
     </Compile>
     <Compile Include="head_details_View.Designer.cs">
       <DependentUpon>head_details_View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Meeting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Meeting.Designer.cs">
+      <DependentUpon>Meeting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemberDetailDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberDetailDisplay.Designer.cs">
+      <DependentUpon>MemberDetailDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="memberlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="memberlogin.Designer.cs">
+      <DependentUpon>memberlogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="membermenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="membermenu.Designer.cs">
+      <DependentUpon>membermenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Member_meeting_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Member_meeting_Main.Designer.cs">
+      <DependentUpon>Member_meeting_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="member_sigup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="member_sigup.Designer.cs">
+      <DependentUpon>member_sigup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemntorMemberDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemntorMemberDetails.Designer.cs">
+      <DependentUpon>MemntorMemberDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="mentorlogin.cs">
       <SubType>Form</SubType>
@@ -215,11 +293,23 @@
     <Compile Include="mentorMenu.Designer.cs">
       <DependentUpon>mentorMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mentor_Member.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mentor_Member.Designer.cs">
+      <DependentUpon>Mentor_Member.cs</DependentUpon>
+    </Compile>
     <Compile Include="mentor_society_view.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="mentor_society_view.Designer.cs">
       <DependentUpon>mentor_society_view.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowMembers.Designer.cs">
+      <DependentUpon>ShowMembers.cs</DependentUpon>
     </Compile>
     <Compile Include="ShowPendingDelete.cs">
       <SubType>Form</SubType>
@@ -259,14 +349,29 @@
     <Compile Include="update.Designer.cs">
       <DependentUpon>update.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addmembers.resx">
+      <DependentUpon>addmembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_details.resx">
+      <DependentUpon>add_details.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="adminMenu.resx">
       <DependentUpon>adminMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="admin_members_view.resx">
+      <DependentUpon>admin_members_view.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="admin_Society_details.resx">
       <DependentUpon>admin_Society_details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="applyForm.resx">
+      <DependentUpon>applyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Approve_Members.resx">
+      <DependentUpon>Approve_Members.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="decide.resx">
       <DependentUpon>decide.cs</DependentUpon>
@@ -280,11 +385,35 @@
     <EmbeddedResource Include="Delete_Society.resx">
       <DependentUpon>Delete_Society.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Final_Approve.resx">
+      <DependentUpon>Final_Approve.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="firstpage.resx">
       <DependentUpon>firstpage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="head_details_View.resx">
       <DependentUpon>head_details_View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Meeting.resx">
+      <DependentUpon>Meeting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberDetailDisplay.resx">
+      <DependentUpon>MemberDetailDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="memberlogin.resx">
+      <DependentUpon>memberlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="membermenu.resx">
+      <DependentUpon>membermenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Member_meeting_Main.resx">
+      <DependentUpon>Member_meeting_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="member_sigup.resx">
+      <DependentUpon>member_sigup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemntorMemberDetails.resx">
+      <DependentUpon>MemntorMemberDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mentorlogin.resx">
       <DependentUpon>mentorlogin.cs</DependentUpon>
@@ -292,8 +421,14 @@
     <EmbeddedResource Include="mentorMenu.resx">
       <DependentUpon>mentorMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mentor_Member.resx">
+      <DependentUpon>Mentor_Member.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mentor_society_view.resx">
       <DependentUpon>mentor_society_view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowMembers.resx">
+      <DependentUpon>ShowMembers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShowPendingDelete.resx">
       <DependentUpon>ShowPendingDelete.cs</DependentUpon>

@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
 
         private void PopulateComboBox()
         {
-            string connectionString = "Data Source=Strix-15\\SQLEXPRESS;Initial Catalog=users;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
             string query = "SELECT societyname FROM societyrecruitment";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -59,7 +59,7 @@ namespace WindowsFormsApp1
 
         private void PopulateComboBox2()
         {
-            string connectionString = "Data Source=Strix-15\\SQLEXPRESS;Initial Catalog=users;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
             string query = "SELECT secretary, Dept_Head, member FROM societyrecruitment";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -108,7 +108,7 @@ namespace WindowsFormsApp1
 
         private void button6_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=Strix-15\\SQLEXPRESS;Initial Catalog=users;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
             string selectedSociety = comboBox1.SelectedItem.ToString();
             string selectedPosition = comboBox2.SelectedItem.ToString();
             string experience = textBox1.Text;

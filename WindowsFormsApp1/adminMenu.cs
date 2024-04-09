@@ -66,5 +66,12 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            admin_members_view log = new admin_members_view();
+            log.Show();
+            this.Hide();
+        }
     }
 }

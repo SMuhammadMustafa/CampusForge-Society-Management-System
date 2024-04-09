@@ -37,5 +37,12 @@ namespace WindowsFormsApp1
             login.Show(); 
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Mentor_Member login = new Mentor_Member(username);
+            login.Show();
+            this.Hide();
+        }
     }
 }

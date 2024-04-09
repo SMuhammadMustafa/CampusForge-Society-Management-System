@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
 
         private void PopulateSocietyNames()
         {
-            string connectionString = "Data Source=Strix-15\\SQLEXPRESS;Initial Catalog=users;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
             string query = "SELECT societyname FROM Societies WHERE societyhead = @username";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -58,7 +58,7 @@ namespace WindowsFormsApp1
 
         private void CreateTableIfNotExists()
         {
-            string connectionString = "Data Source=Strix-15\\SQLEXPRESS;Initial Catalog=users;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
             string query = "IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Meetings') " +
                            "CREATE TABLE Meetings (" +
                            "ID INT IDENTITY(1,1) PRIMARY KEY," +
@@ -90,7 +90,7 @@ namespace WindowsFormsApp1
             DateTime date = dateTimePicker1.Value.Date;
             TimeSpan time = dateTimePicker2.Value.TimeOfDay;
 
-            string connectionString = "Data Source=Strix-15\\SQLEXPRESS;Initial Catalog=users;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

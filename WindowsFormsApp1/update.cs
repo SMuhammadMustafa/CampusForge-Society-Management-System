@@ -17,10 +17,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
-            // Populate comboBox1 with approved societies
             PopulateApprovedSocieties();
 
-            // Populate comboBox2 with heads' names
             PopulateHeadsNames();
         }
 

@@ -7,7 +7,7 @@ namespace WindowsFormsApp1
     public partial class Decide_Pending_delete : Form
     {
         private string societyN;
-        private string connectionString = "Data Source=Strix-15\\SQLEXPRESS;Initial Catalog=users;Integrated Security=True";
+        private string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
 
         public Decide_Pending_delete(string societyName)
         {
@@ -20,13 +20,10 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Check if the selected value is "Approve"
             if (comboBox1.SelectedItem.ToString() == "Approve")
             {
-                // Perform deletion from 'deleted_societies' table
                 DeleteFromDeletedSocieties();
 
-                // Perform deletion from 'Societies' table
                 DeleteFromSocieties();
 
                 MessageBox.Show("Deletion completed.");
@@ -91,47 +88,38 @@ namespace WindowsFormsApp1
 
         private void label7_Click(object sender, EventArgs e)
         {
-            // Handle label click event if needed
         }
 
         private void txtsocietyname_TextChanged(object sender, EventArgs e)
         {
-            // Handle text changed event if needed
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-            // Handle label click event if needed
         }
 
         private void txtReason_TextChanged(object sender, EventArgs e)
         {
-            // Handle text changed event if needed
         }
 
         private void txtHeadname_TextChanged(object sender, EventArgs e)
         {
-            // Handle text changed event if needed
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            // Handle label click event if needed
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            // Handle label click event if needed
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            // Handle label click event if needed
         }
 
         private void Decide_Pending_delete_Load(object sender, EventArgs e)
         {
-            // Handle form load event if needed
         }
 
     }
