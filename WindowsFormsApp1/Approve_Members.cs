@@ -56,20 +56,26 @@ namespace WindowsFormsApp1
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "ReviewButton")
             {
                 string societyName = dataGridView1.Rows[e.RowIndex].Cells["Society_Name"].Value.ToString();
-                string ree = dataGridView1.Rows[e.RowIndex].Cells["Username"].Value.ToString(); // Assuming the column name containing username is "Username_Column_Name"
+                string ree = dataGridView1.Rows[e.RowIndex].Cells["Username"].Value.ToString(); // Assuming the column name containing username is "Username"
 
                 Final_Approve reviewForm = new Final_Approve(username, ree);
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "SELECT m.societyname AS Society_Name ,m.namee AS usernam, m.position AS position, m.experience AS exp " +
+                    string query = "SELECT m.societyname AS Society_Name, m.namee AS usernam, m.position AS position, m.experience AS exp " +
                                    "FROM members m " +
                                    "WHERE m.statuss = 'pending' AND " +
+                                   "m.namee = @ree AND " +
                                    "EXISTS (SELECT s.societyhead FROM societies s WHERE s.societyname = m.societyname AND s.societyhead = @username)";
+
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@ree", ree);
+
                     connection.Open();
+
                     SqlDataReader reader = command.ExecuteReader();
+
                     if (reader.Read())
                     {
                         reviewForm.txtSocietyname.Text = reader["Society_Name"].ToString();

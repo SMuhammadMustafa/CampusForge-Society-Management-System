@@ -102,6 +102,7 @@
             this.txtsocietymentor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtsocietymentor.Multiline = true;
             this.txtsocietymentor.Name = "txtsocietymentor";
+            this.txtsocietymentor.ReadOnly = true;
             this.txtsocietymentor.Size = new System.Drawing.Size(324, 49);
             this.txtsocietymentor.TabIndex = 73;
             // 
@@ -143,6 +144,7 @@
             this.txtsocietyRules.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtsocietyRules.Multiline = true;
             this.txtsocietyRules.Name = "txtsocietyRules";
+            this.txtsocietyRules.ReadOnly = true;
             this.txtsocietyRules.Size = new System.Drawing.Size(324, 49);
             this.txtsocietyRules.TabIndex = 69;
             // 
@@ -164,6 +166,7 @@
             this.txtsocietycontact.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtsocietycontact.Multiline = true;
             this.txtsocietycontact.Name = "txtsocietycontact";
+            this.txtsocietycontact.ReadOnly = true;
             this.txtsocietycontact.Size = new System.Drawing.Size(324, 49);
             this.txtsocietycontact.TabIndex = 67;
             // 
@@ -185,6 +188,7 @@
             this.txtsocietywise.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtsocietywise.Multiline = true;
             this.txtsocietywise.Name = "txtsocietywise";
+            this.txtsocietywise.ReadOnly = true;
             this.txtsocietywise.Size = new System.Drawing.Size(324, 49);
             this.txtsocietywise.TabIndex = 65;
             // 
@@ -206,6 +210,7 @@
             this.txtsocietyhead.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtsocietyhead.Multiline = true;
             this.txtsocietyhead.Name = "txtsocietyhead";
+            this.txtsocietyhead.ReadOnly = true;
             this.txtsocietyhead.Size = new System.Drawing.Size(324, 49);
             this.txtsocietyhead.TabIndex = 63;
             // 

@@ -58,7 +58,8 @@ namespace WindowsFormsApp1
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT m.societyname AS Society_Name, m.statuss AS Status " +
+                string query = "SELECT m.namee AS Name, m.position AS Position, m.batch AS Batch, " +
+                               "m.societyname AS Society_Name, m.statuss AS Status " +
                                "FROM members m " +
                                "WHERE m.societyname = @societyName AND (m.statuss = 'Approve' OR m.statuss = 'Suspend') AND " +
                                "EXISTS (SELECT s.societyhead FROM societies s WHERE s.societyname = m.societyname)";
@@ -69,21 +70,26 @@ namespace WindowsFormsApp1
 
                 adapter.Fill(table);
 
-                if (dataGridView1.Columns["ReviewButton"] == null)
+                if (!table.Columns.Contains("Name"))
+                    table.Columns.Add("Name");
+                if (!table.Columns.Contains("Position"))
+                    table.Columns.Add("Position");
+                if (!table.Columns.Contains("Batch"))
+                    table.Columns.Add("Batch");
+
+                foreach (DataRow row in table.Rows)
                 {
-                    DataGridViewButtonColumn reviewButtonColumn = new DataGridViewButtonColumn();
-                    reviewButtonColumn.Name = "ReviewButton";
-                    reviewButtonColumn.HeaderText = "Review";
-                    reviewButtonColumn.Text = "Review";
-                    reviewButtonColumn.UseColumnTextForButtonValue = true;
-                    dataGridView1.Columns.Add(reviewButtonColumn);
+                    row["Name"] = row["Name"];
+                    row["Position"] = row["Position"];
+                    row["Batch"] = row["Batch"];
                 }
 
                 dataGridView1.DataSource = table;
             }
         }
 
-       
+
+
 
         private void admin_members_view_Load(object sender, EventArgs e)
         {
@@ -99,6 +105,11 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

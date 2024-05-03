@@ -120,6 +120,7 @@
             this.txtsocietycontact.Location = new System.Drawing.Point(361, 294);
             this.txtsocietycontact.Multiline = true;
             this.txtsocietycontact.Name = "txtsocietycontact";
+            this.txtsocietycontact.ReadOnly = true;
             this.txtsocietycontact.Size = new System.Drawing.Size(216, 28);
             this.txtsocietycontact.TabIndex = 59;
             // 
@@ -166,6 +167,7 @@
             this.txtsocietyhead.Location = new System.Drawing.Point(361, 222);
             this.txtsocietyhead.Multiline = true;
             this.txtsocietyhead.Name = "txtsocietyhead";
+            this.txtsocietyhead.ReadOnly = true;
             this.txtsocietyhead.Size = new System.Drawing.Size(216, 28);
             this.txtsocietyhead.TabIndex = 53;
             // 
@@ -176,6 +178,7 @@
             this.txtSocietyname.Location = new System.Drawing.Point(361, 92);
             this.txtSocietyname.Multiline = true;
             this.txtSocietyname.Name = "txtSocietyname";
+            this.txtSocietyname.ReadOnly = true;
             this.txtSocietyname.Size = new System.Drawing.Size(216, 28);
             this.txtSocietyname.TabIndex = 52;
             // 
@@ -195,6 +198,7 @@
             this.textBox1.Location = new System.Drawing.Point(361, 155);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(216, 28);
             this.textBox1.TabIndex = 67;
             // 

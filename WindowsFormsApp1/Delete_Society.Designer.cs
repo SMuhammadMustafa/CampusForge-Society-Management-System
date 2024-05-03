@@ -72,6 +72,7 @@
             this.txtHeadname.Location = new System.Drawing.Point(361, 151);
             this.txtHeadname.Multiline = true;
             this.txtHeadname.Name = "txtHeadname";
+            this.txtHeadname.ReadOnly = true;
             this.txtHeadname.Size = new System.Drawing.Size(216, 28);
             this.txtHeadname.TabIndex = 32;
             // 
@@ -195,6 +196,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Delete_Society";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Delete_Society";
             this.Load += new System.EventHandler(this.Delete_Society_Load);
             this.panel1.ResumeLayout(false);

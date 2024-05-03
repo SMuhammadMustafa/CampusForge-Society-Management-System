@@ -44,6 +44,8 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +56,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(400, 155);
+            this.button1.Location = new System.Drawing.Point(401, 139);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(257, 45);
             this.button1.TabIndex = 21;
@@ -68,7 +70,7 @@
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(400, 217);
+            this.button3.Location = new System.Drawing.Point(400, 190);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(257, 45);
             this.button3.TabIndex = 23;
@@ -82,7 +84,7 @@
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(400, 284);
+            this.button4.Location = new System.Drawing.Point(401, 241);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(257, 45);
             this.button4.TabIndex = 24;
@@ -150,7 +152,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(438, 92);
+            this.label1.Location = new System.Drawing.Point(426, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(199, 28);
             this.label1.TabIndex = 47;
@@ -161,7 +163,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Nirmala UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.label10.Location = new System.Drawing.Point(445, 40);
+            this.label10.Location = new System.Drawing.Point(433, 34);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(101, 41);
             this.label10.TabIndex = 46;
@@ -172,9 +174,9 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(84)))), ((int)(((byte)(174)))));
-            this.textBox1.Location = new System.Drawing.Point(533, 40);
+            this.textBox1.Location = new System.Drawing.Point(521, 34);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(42, 36);
+            this.textBox1.Size = new System.Drawing.Size(135, 36);
             this.textBox1.TabIndex = 48;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -195,11 +197,11 @@
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(400, 348);
+            this.button6.Location = new System.Drawing.Point(400, 292);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(257, 45);
             this.button6.TabIndex = 52;
-            this.button6.Text = "Add New Member\'s";
+            this.button6.Text = "ADD NEW MEMBER\'S";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -209,11 +211,11 @@
             this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(400, 413);
+            this.button7.Location = new System.Drawing.Point(401, 343);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(257, 45);
             this.button7.TabIndex = 53;
-            this.button7.Text = "Approve New Members";
+            this.button7.Text = "APPROVE MEMBER\'S";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -223,7 +225,7 @@
             this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(399, 481);
+            this.button8.Location = new System.Drawing.Point(401, 394);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(257, 45);
             this.button8.TabIndex = 54;
@@ -237,13 +239,41 @@
             this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(400, 543);
+            this.button9.Location = new System.Drawing.Point(400, 448);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(257, 45);
             this.button9.TabIndex = 55;
-            this.button9.Text = "Meetings";
+            this.button9.Text = "Add Meetings";
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.Location = new System.Drawing.Point(400, 499);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(257, 45);
+            this.button10.TabIndex = 56;
+            this.button10.Text = "Add Event";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.ForeColor = System.Drawing.Color.White;
+            this.button11.Location = new System.Drawing.Point(401, 550);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(257, 45);
+            this.button11.TabIndex = 57;
+            this.button11.Text = "Update Event";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Main
             // 
@@ -251,6 +281,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(700, 600);
+            this.Controls.Add(this.button11);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -296,5 +328,7 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }

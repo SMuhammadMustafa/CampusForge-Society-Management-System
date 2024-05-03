@@ -80,9 +80,9 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(200, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(322, 50);
+            this.label6.Size = new System.Drawing.Size(320, 50);
             this.label6.TabIndex = 30;
-            this.label6.Text = "Society Members";
+            this.label6.Text = "Society Meetings";
             // 
             // dataGridView1
             // 

@@ -80,6 +80,7 @@
             this.txtsocietyhead.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtsocietyhead.Multiline = true;
             this.txtsocietyhead.Name = "txtsocietyhead";
+            this.txtsocietyhead.ReadOnly = true;
             this.txtsocietyhead.Size = new System.Drawing.Size(324, 49);
             this.txtsocietyhead.TabIndex = 36;
             this.txtsocietyhead.TextChanged += new System.EventHandler(this.txtsocietyhead_TextChanged);

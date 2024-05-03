@@ -66,6 +66,7 @@
             this.txtsocietyRules.Location = new System.Drawing.Point(361, 422);
             this.txtsocietyRules.Multiline = true;
             this.txtsocietyRules.Name = "txtsocietyRules";
+            this.txtsocietyRules.ReadOnly = true;
             this.txtsocietyRules.Size = new System.Drawing.Size(216, 28);
             this.txtsocietyRules.TabIndex = 43;
             this.txtsocietyRules.TextChanged += new System.EventHandler(this.txtsocietyRules_TextChanged);
@@ -86,6 +87,7 @@
             this.txtsocietycontact.Location = new System.Drawing.Point(361, 294);
             this.txtsocietycontact.Multiline = true;
             this.txtsocietycontact.Name = "txtsocietycontact";
+            this.txtsocietycontact.ReadOnly = true;
             this.txtsocietycontact.Size = new System.Drawing.Size(216, 28);
             this.txtsocietycontact.TabIndex = 41;
             this.txtsocietycontact.TextChanged += new System.EventHandler(this.txtsocietycontact_TextChanged);
@@ -108,7 +110,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(216, 35);
             this.button2.TabIndex = 37;
-            this.button2.Text = "CLEAR";
+            this.button2.Text = "BACK";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -133,6 +135,7 @@
             this.txtsocietywise.Location = new System.Drawing.Point(361, 358);
             this.txtsocietywise.Multiline = true;
             this.txtsocietywise.Name = "txtsocietywise";
+            this.txtsocietywise.ReadOnly = true;
             this.txtsocietywise.Size = new System.Drawing.Size(216, 28);
             this.txtsocietywise.TabIndex = 35;
             this.txtsocietywise.TextChanged += new System.EventHandler(this.txtsocietywise_TextChanged);
@@ -153,6 +156,7 @@
             this.txtsocietyhead.Location = new System.Drawing.Point(361, 222);
             this.txtsocietyhead.Multiline = true;
             this.txtsocietyhead.Name = "txtsocietyhead";
+            this.txtsocietyhead.ReadOnly = true;
             this.txtsocietyhead.Size = new System.Drawing.Size(216, 28);
             this.txtsocietyhead.TabIndex = 33;
             this.txtsocietyhead.TextChanged += new System.EventHandler(this.txtsocietyhead_TextChanged);
@@ -164,6 +168,7 @@
             this.txtSocietyname.Location = new System.Drawing.Point(361, 92);
             this.txtSocietyname.Multiline = true;
             this.txtSocietyname.Name = "txtSocietyname";
+            this.txtSocietyname.ReadOnly = true;
             this.txtSocietyname.Size = new System.Drawing.Size(216, 28);
             this.txtSocietyname.TabIndex = 32;
             this.txtSocietyname.TextChanged += new System.EventHandler(this.txtSocietyname_TextChanged);

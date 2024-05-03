@@ -103,5 +103,19 @@ namespace WindowsFormsApp1
             log.Show();
             this.Hide();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Add_Event log = new Add_Event(username);
+            log.Show();
+            this.Hide();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            update_Event log = new update_Event(username);
+            log.Show();
+            this.Hide();
+        }
     }
 }

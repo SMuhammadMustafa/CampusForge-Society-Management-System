@@ -40,9 +40,11 @@ namespace WindowsFormsApp1
 
                     if (exists == 1)
                     {
-                        string checkQuery = "SELECT COUNT(*) FROM members WHERE statuss IS NULL";
+                        string checkQuery = "SELECT COUNT(*) FROM members WHERE statuss IS NULL AND username = @username";
                         using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
                         {
+                            checkCommand.Parameters.AddWithValue("@username", username);
+
                             int nullStatusCount = (int)checkCommand.ExecuteScalar();
 
                             if (nullStatusCount > 0)
@@ -51,11 +53,12 @@ namespace WindowsFormsApp1
                             }
                             else
                             {
-                                string societyQuery = "SELECT societyname FROM societyrecruitment";
+                                string societyQuery = "SELECT COUNT(*) FROM societyrecruitment";
                                 using (SqlCommand societyCommand = new SqlCommand(societyQuery, connection))
-                                using (SqlDataReader reader = societyCommand.ExecuteReader())
                                 {
-                                    if (reader.HasRows)
+                                    int societyCount = (int)societyCommand.ExecuteScalar();
+
+                                    if (societyCount > 0)
                                     {
                                         applyForm login = new applyForm(username);
                                         login.Show();
@@ -75,6 +78,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
 
 
 
@@ -111,6 +115,13 @@ namespace WindowsFormsApp1
         {
             Member_meeting_Main log = new Member_meeting_Main(username);
             log.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Member_event_view log = new Member_event_view(username);
+            log.Show(); 
             this.Hide();
         }
     }

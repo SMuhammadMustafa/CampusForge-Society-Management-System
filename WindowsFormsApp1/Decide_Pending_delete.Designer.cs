@@ -75,6 +75,7 @@
             this.txtsocietyname.Location = new System.Drawing.Point(389, 204);
             this.txtsocietyname.Multiline = true;
             this.txtsocietyname.Name = "txtsocietyname";
+            this.txtsocietyname.ReadOnly = true;
             this.txtsocietyname.Size = new System.Drawing.Size(216, 28);
             this.txtsocietyname.TabIndex = 54;
             this.txtsocietyname.TextChanged += new System.EventHandler(this.txtsocietyname_TextChanged);
@@ -110,6 +111,7 @@
             this.txtReason.Location = new System.Drawing.Point(389, 286);
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
+            this.txtReason.ReadOnly = true;
             this.txtReason.Size = new System.Drawing.Size(216, 28);
             this.txtReason.TabIndex = 49;
             this.txtReason.TextChanged += new System.EventHandler(this.txtReason_TextChanged);
@@ -121,6 +123,7 @@
             this.txtHeadname.Location = new System.Drawing.Point(389, 122);
             this.txtHeadname.Multiline = true;
             this.txtHeadname.Name = "txtHeadname";
+            this.txtHeadname.ReadOnly = true;
             this.txtHeadname.Size = new System.Drawing.Size(216, 28);
             this.txtHeadname.TabIndex = 48;
             this.txtHeadname.TextChanged += new System.EventHandler(this.txtHeadname_TextChanged);

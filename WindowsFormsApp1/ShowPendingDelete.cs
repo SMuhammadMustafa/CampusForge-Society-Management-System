@@ -90,5 +90,10 @@ namespace WindowsFormsApp1
         {
             Application.Exit(); 
         }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

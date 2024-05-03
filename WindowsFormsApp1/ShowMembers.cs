@@ -24,9 +24,9 @@ namespace WindowsFormsApp1
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT m.societyname AS Society_Name, m.statuss AS Status " +
+                string query = "SELECT m.societyname AS Society_Name, m.statuss AS Status, m.username AS Username " +
                                "FROM members m " +
-                               "WHERE m.statuss = 'Approve' OR m.statuss = 'Suspend' AND " +
+                               "WHERE (m.statuss = 'Approve' OR m.statuss = 'Suspend') AND " +
                                "EXISTS (SELECT s.societyhead FROM societies s WHERE s.societyname = m.societyname AND s.societyhead = @username)";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@username", username);
@@ -49,37 +49,38 @@ namespace WindowsFormsApp1
             }
         }
 
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "ReviewButton")
             {
                 string societyName = dataGridView1.Rows[e.RowIndex].Cells["Society_Name"].Value.ToString();
+                string usernam = dataGridView1.Rows[e.RowIndex].Cells["Username"].Value.ToString();
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "SELECT m.societyname AS Society_Name, m.username As unmae, m.namee AS username, m.position AS position, m.experience AS exp " +
+                    string query = "SELECT m.namee AS name, m.position AS position, m.experience AS experience " +
                                    "FROM members m " +
-                                   "WHERE m.statuss = 'Approve'  Or m.statuss = 'Suspend' AND " +
-                                   "EXISTS (SELECT s.societyhead FROM societies s WHERE s.societyname = m.societyname)";
+                                   "WHERE m.societyname = @societyName AND m.username = @usernam";
+
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@societyName", societyName);
+                    command.Parameters.AddWithValue("@usernam", usernam);
+
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
+
                     if (reader.Read())
                     {
-                        string memberUsername = reader["unmae"].ToString();
-                        MemberDetailDisplay reviewForm = new MemberDetailDisplay(username,memberUsername);
-
-                        reviewForm.textBox1.Text = memberUsername;
+                        MemberDetailDisplay reviewForm = new MemberDetailDisplay(username, usernam);
+                        reviewForm.textBox1.Text = usernam;
                         reviewForm.txtsocietyhead.Text = reader["position"].ToString();
-                        reviewForm.txtsocietycontact.Text = reader["exp"].ToString();
-
+                        reviewForm.txtsocietycontact.Text = reader["experience"].ToString();
                         reviewForm.ShowDialog();
                     }
                 }
             }
         }
+
 
 
 

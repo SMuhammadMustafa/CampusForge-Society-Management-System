@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
 {
     public partial class firstpage : Form
     {
+        string username;
         public firstpage()
         {
             InitializeComponent();
@@ -75,15 +76,17 @@ namespace WindowsFormsApp1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            AdminLogin loginForm = new AdminLogin();
-            loginForm.Show();
+            username = "admin";
+            Formlogin l = new Formlogin(username);
+            l.Show();
             this.Hide();
         }
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            Formlogin loginForm = new Formlogin();
-            loginForm.Show();
+            username = "head";
+            Formlogin l = new Formlogin(username);
+            l.Show();
             this.Hide();
         }
 
@@ -99,14 +102,16 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            mentorlogin login = new mentorlogin();
-            login.Show();
-            this.Hide();        
+            username = "mentor";
+            Formlogin l = new Formlogin(username);
+            l.Show();
+            this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            memberlogin  l = new memberlogin();
+            username = "member";
+            Formlogin  l = new Formlogin(username);
             l.Show();
             this.Hide();
         }

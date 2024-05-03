@@ -16,8 +16,10 @@ namespace WindowsFormsApp1
 {
     public partial class Formlogin : Form
     {
-        public Formlogin()
+        string username;
+        public Formlogin(string username)
         {
+            this.username = username;
             InitializeComponent();
             textBox2.PasswordChar = '*';
         }
@@ -29,9 +31,22 @@ namespace WindowsFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True"; 
             string un = textBox3.Text;
             string pass = textBox2.Text;
+
+            // Check if username length is within 3-10 characters
+            if (un == "" || pass == "" )
+            {
+                MessageBox.Show("Username must be between 3 and 10 characters long.");
+                return;
+            }
+
+            
+
+            if (username == "head")
+            { 
+            string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True"; 
+            
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -62,6 +77,100 @@ namespace WindowsFormsApp1
                     }
                 }
             }
+        }else if (username == "admin")
+            {
+                string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
+                
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT COUNT(*) FROM [Admin] WHERE Username = @Username AND PasswordHash = @PasswordHash";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Username", un);
+                        cmd.Parameters.AddWithValue("@PasswordHash", pass);
+
+                        int count = (int)cmd.ExecuteScalar();
+
+                        if (count == 0)
+                        {
+                            MessageBox.Show("No such username found Please Check USer Name and Password");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Successfully logged in!");
+                            adminMenu login = new adminMenu();
+                            login.Show();
+                            this.Hide();
+                        }
+                    }
+                }
+            }else if (username == "mentor")
+            {
+                string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
+             
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT COUNT(*) FROM [mentors] WHERE Username = @Username AND PasswordHash = @PasswordHash";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Username", un);
+                        cmd.Parameters.AddWithValue("@PasswordHash", pass);
+
+                        int count = (int)cmd.ExecuteScalar();
+
+                        if (count == 0)
+                        {
+                            MessageBox.Show("No such username found Please Check USer Name and Password");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Successfully logged in!");
+                            mentorMenu login = new mentorMenu(un);
+                            login.Show();
+                            this.Hide();
+                        }
+                    }
+                }
+            }
+            else if ( username == "member")
+            {
+                string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
+               
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT COUNT(*) FROM [Members] WHERE Username = @Username AND PasswordHash = @PasswordHash";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Username", un);
+                        cmd.Parameters.AddWithValue("@PasswordHash", pass);
+
+                        int count = (int)cmd.ExecuteScalar();
+
+                        if (count == 0)
+                        {
+                            MessageBox.Show("No such username found Please Check USer Name and Password");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Successfully logged in!");
+                            membermenu login = new membermenu(un);
+                            login.Show();
+                            this.Hide();
+                        }
+                    }
+                }
+            }
+
+
         }
 
 
@@ -73,9 +182,18 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormRegister loginform = new FormRegister();
+            if (username == "head")
+            { 
+            FormRegister loginform = new FormRegister(username);
             loginform.Show();
             this.Hide();
+            }
+            else if (username == "member")
+            {
+                member_sigup log = new member_sigup(username);
+                log.Show();
+                this.Hide();
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)

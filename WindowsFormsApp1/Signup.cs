@@ -14,12 +14,14 @@ using System.Data.SqlClient;
 
 namespace WindowsFormsApp1
 {
+    
     public partial class FormRegister : Form
     {
-        public FormRegister()
+        string username;
+        public FormRegister(string username)
         {
+            this.username = username;
             InitializeComponent();
-            txtcompassword.PasswordChar = '*';
             txtpassword.PasswordChar = '*';
         }
 
@@ -83,33 +85,82 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (txtusername.Text == "" || txtcompassword.Text == "" || txtpassword.Text == "")
-            {
-                MessageBox.Show("Please Fill All Fields", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (txtpassword.Text != txtcompassword.Text)
-            {
-                MessageBox.Show("Password Fields Do Not Match", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
-                string username = txtusername.Text;
-                string password = txtpassword.Text;
-                string batch = "batch1"; 
+            string username = txtusername.Text;
+            string password = txtpassword.Text;
+            string phoneNumber = textBox2.Text;
+            string email = textBox1.Text;
+            string batch = txtcompassword.Text;
 
-                using (SqlConnection conn = new SqlConnection(connectionString))
+
+
+            int currentYear = DateTime.Now.Year;
+
+            if (username.Length < 3 || username.Length > 10)
+            {
+                MessageBox.Show("Username must be between 3 and 10 characters long.", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (password.Length < 5 || password.Length > 10)
+            {
+                MessageBox.Show("Password must be between 5 and 10 characters long.", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (password.Contains(" "))
                 {
-                    conn.Open();
+                    MessageBox.Show("Password cannot contain spaces.", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                    string queryInsertUser = "INSERT INTO Heads (username, passwordHash, batch) VALUES (@Username, @PasswordHash, @Batch)";
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(batch) || string.IsNullOrWhiteSpace(phoneNumber) || string.IsNullOrWhiteSpace(email))
+            {
+                MessageBox.Show("Please fill all fields", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                    using (SqlCommand cmdInsertUser = new SqlCommand(queryInsertUser, conn))
+
+            if (!IsPhoneNumberValid(phoneNumber))
+            {
+                MessageBox.Show("Invalid phone number. It should contain only numbers and have a length of 11 digits.", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsEmailValid(email))
+            {
+                MessageBox.Show("Invalid email address.", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            if (!int.TryParse(batch, out int parsedInt))
+            {
+                MessageBox.Show("Batch year must be a valid number.", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (parsedInt < currentYear - 5 || parsedInt > currentYear)
+            {
+                MessageBox.Show("Batch year must be within the range of (current year - 5) to current year.", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string queryInsertUser = "INSERT INTO Heads (username, passwordHash, phoneNumber, email, batch) VALUES (@Username, @PasswordHash, @PhoneNumber, @Email, @Batch)";
+
+                using (SqlCommand cmdInsertUser = new SqlCommand(queryInsertUser, conn))
+                {
+                    cmdInsertUser.Parameters.AddWithValue("@Username", username);
+                    cmdInsertUser.Parameters.AddWithValue("@PasswordHash", password);
+                    cmdInsertUser.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                    cmdInsertUser.Parameters.AddWithValue("@Email", email);
+                    cmdInsertUser.Parameters.AddWithValue("@Batch", batch);
+
+                    try
                     {
-                        cmdInsertUser.Parameters.AddWithValue("@Username", username);
-                        cmdInsertUser.Parameters.AddWithValue("@PasswordHash", password);
-                        cmdInsertUser.Parameters.AddWithValue("@Batch", batch);
-
                         int rowsAffected = cmdInsertUser.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
@@ -121,9 +172,32 @@ namespace WindowsFormsApp1
                             MessageBox.Show("Failed to register user. Please try again.");
                         }
                     }
+                    catch (SqlException ex)
+                    {
+                        if (ex.Number == 2627) 
+                        {
+                            MessageBox.Show("Username already exists. Please choose a different username.", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error occurred while registering user: " + ex.Message, "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
         }
+
+        private bool IsPhoneNumberValid(string phoneNumber)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(phoneNumber, @"^\d{11}$");
+        }
+
+        private bool IsEmailValid(string email)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(email, @"^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$");
+        }
+
+
 
         private void button2_Click_1(object sender, EventArgs e)
         {
@@ -134,7 +208,7 @@ namespace WindowsFormsApp1
 
         private void label6_Click_1(object sender, EventArgs e)
         {
-            Formlogin loginForm = new Formlogin();
+            Formlogin loginForm = new Formlogin(username);
             loginForm.Show();
             this.Hide();
         }
@@ -155,7 +229,6 @@ namespace WindowsFormsApp1
         {
             if (checkbxShowPas.Checked)
             {
-                txtcompassword.PasswordChar = '\0';
                 txtpassword.PasswordChar = '\0';
                 Timer timer = new Timer();
                 timer.Interval = 1000;
@@ -163,7 +236,6 @@ namespace WindowsFormsApp1
                 {
 
                     txtpassword.PasswordChar = '*';
-                    txtcompassword.PasswordChar = '*';
                     timer.Stop();
                     timer.Dispose();
                     checkbxShowPas.Checked = false;
@@ -172,8 +244,22 @@ namespace WindowsFormsApp1
             }
             else
             {
-                txtcompassword.PasswordChar = '*';
             }
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtcompassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

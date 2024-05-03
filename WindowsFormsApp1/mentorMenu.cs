@@ -44,5 +44,26 @@ namespace WindowsFormsApp1
             login.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Approve_Event log = new Approve_Event(username);
+            log.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Mentor_Meeting log = new Mentor_Meeting(username);
+            log.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Mentor_Events log = new Mentor_Events(username);
+            log.Show();
+            this.Hide();
+        }
     }
 }

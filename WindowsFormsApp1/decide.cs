@@ -39,7 +39,6 @@ namespace WindowsFormsApp1
 
         List<string> availableMentorNames = new List<string>();
 
-        // Execute the query and store mentor names in a list
         using (SqlCommand cmd = new SqlCommand(selectQuery, conn))
         {
             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -177,7 +176,9 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            Decide_pending log = new Decide_pending();
+            log.Show();
+            this.Hide();
         }
     }
 }

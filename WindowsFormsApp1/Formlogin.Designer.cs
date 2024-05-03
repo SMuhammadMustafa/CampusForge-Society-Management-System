@@ -130,7 +130,7 @@
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.button3.Location = new System.Drawing.Point(435, 398);
+            this.button3.Location = new System.Drawing.Point(435, 413);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(216, 35);
             this.button3.TabIndex = 31;
@@ -142,7 +142,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(447, 455);
+            this.label4.Location = new System.Drawing.Point(446, 461);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(189, 23);
             this.label4.TabIndex = 32;
@@ -156,7 +156,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(84)))), ((int)(((byte)(174)))));
-            this.button1.Location = new System.Drawing.Point(435, 481);
+            this.button1.Location = new System.Drawing.Point(434, 487);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(216, 38);
             this.button1.TabIndex = 33;
@@ -174,7 +174,7 @@
             this.panel1.Location = new System.Drawing.Point(0, -2);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(5);
-            this.panel1.Size = new System.Drawing.Size(379, 553);
+            this.panel1.Size = new System.Drawing.Size(379, 604);
             this.panel1.TabIndex = 50;
             // 
             // button2
@@ -184,7 +184,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(73, 437);
+            this.button2.Location = new System.Drawing.Point(75, 449);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(216, 35);
             this.button2.TabIndex = 42;
@@ -198,11 +198,11 @@
             this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 22.2F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(80, 357);
+            this.label3.Location = new System.Drawing.Point(112, 364);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(214, 45);
+            this.label3.Size = new System.Drawing.Size(131, 45);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Head LOGIN";
+            this.label3.Text = "LOGIN";
             // 
             // pictureBox1
             // 
@@ -239,7 +239,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(706, 550);
+            this.ClientSize = new System.Drawing.Size(706, 600);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.panel1);

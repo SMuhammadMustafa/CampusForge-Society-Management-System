@@ -6,8 +6,10 @@ namespace WindowsFormsApp1
 {
     public partial class member_sigup : Form
     {
-        public member_sigup()
+        string username;
+        public member_sigup(string username)
         {
+            this.username = username;
             InitializeComponent();
             txtcompassword.PasswordChar = '*';
             txtpassword.PasswordChar = '*';
@@ -19,40 +21,41 @@ namespace WindowsFormsApp1
         }
 
 
-        private void label6_Click_1(object sender, EventArgs e)
-        {
-            Formlogin loginForm = new Formlogin();
-            loginForm.Show();
-            this.Hide();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            firstpage loginForm = new firstpage();
-            loginForm.Show();
-            this.Hide();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+       
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            if (txtusername.Text == "" && txtcompassword.Text == "" && txtpassword.Text == "")
+
+            string username = txtusername.Text;
+            string password = txtpassword.Text;
+            string confirmPassword = txtcompassword.Text;
+
+            if (username.Length < 3 || username.Length > 10)
+            {
+                MessageBox.Show("Username must be between 3 and 10 characters long.", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (password.Length < 5 || password.Length > 10)
+            {
+                MessageBox.Show("Password must be between 5 and 10 characters long.", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (txtusername.Text == "" || txtcompassword.Text == "" || txtpassword.Text == "")
             {
                 MessageBox.Show("Please Fill All Fields", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else if (txtpassword.Text != txtcompassword.Text)
+
+            if (password != confirmPassword)
             {
                 MessageBox.Show("Password Fields Do Not Match", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
             {
                 string connectionString = "Data Source=DESKTOP-BUNDG75\\SQLEXPRESS01;Initial Catalog=users;Integrated Security=True";
-                string username = txtusername.Text;
-                string password = txtpassword.Text;
+                
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -61,25 +64,40 @@ namespace WindowsFormsApp1
                     string queryInsertUser = "INSERT INTO members (username, namee, passwordHash, batch, position, Executive_Council, Societyname, statuss, experience) " +
                         "VALUES (@Username, NULL, @PasswordHash, NULL, NULL, NULL, NULL, NULL, NULL)";
 
-                    using (SqlCommand cmdInsertUser = new SqlCommand(queryInsertUser, conn))
+                    try
                     {
-                        cmdInsertUser.Parameters.AddWithValue("@Username", username);
-                        cmdInsertUser.Parameters.AddWithValue("@PasswordHash", password);
-
-                        int rowsAffected = cmdInsertUser.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
+                        using (SqlCommand cmdInsertUser = new SqlCommand(queryInsertUser, conn))
                         {
-                            MessageBox.Show("Member registered successfully!");
+                            cmdInsertUser.Parameters.AddWithValue("@Username", username);
+                            cmdInsertUser.Parameters.AddWithValue("@PasswordHash", password);
+
+                            int rowsAffected = cmdInsertUser.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Member registered successfully!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to register user. Please try again.");
+                            }
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        if (ex.Number == 2627) 
+                        {
+                            MessageBox.Show("Username already exists. Please choose a different username.", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
-                            MessageBox.Show("Failed to register user. Please try again.");
+                            MessageBox.Show("An error occurred. Please try again.", "Register Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
             }
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -114,7 +132,7 @@ namespace WindowsFormsApp1
 
         private void label6_Click(object sender, EventArgs e)
         {
-            memberlogin log = new memberlogin();
+            Formlogin log = new Formlogin(username);
             log.Show();
             this.Hide();
         }

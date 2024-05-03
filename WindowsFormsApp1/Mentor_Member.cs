@@ -46,27 +46,27 @@ namespace WindowsFormsApp1
         }
 
 
+       
+
+
         private void PopulateDataGridView()
         {
             dataGridView1.Columns.Clear();
-
             int mentorID = getmentorID();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                string query = "SELECT m.societyname AS Society_Name, m.statuss AS Status, m.username AS Name " +
+                               "FROM members m " +
+                               "WHERE (m.statuss = 'Approve' OR m.statuss = 'Suspend') AND " +
+                               "EXISTS (SELECT s.societyhead FROM societies s " +
+                               "WHERE s.societyname = m.societyname " +
+                               "AND s.societymentor = @mentorID)";
 
-                string query = "SELECT m.societyname AS Society_Name, m.statuss AS Status " +
-                                "FROM members m " +
-                                "WHERE m.statuss = 'Approve' OR m.statuss = 'Suspend' AND " +
-                                "EXISTS (SELECT s.societyhead FROM societies s " +
-                                "WHERE s.societyname = m.societyname " +
-                                "AND s.societymentor = @mentorID)";
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@username", un);
                 command.Parameters.AddWithValue("@mentorID", mentorID);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 DataTable table = new DataTable();
-
                 adapter.Fill(table);
 
                 if (dataGridView1.Columns["ReviewButton"] == null)
@@ -83,31 +83,32 @@ namespace WindowsFormsApp1
             }
         }
 
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "ReviewButton")
             {
                 string societyName = dataGridView1.Rows[e.RowIndex].Cells["Society_Name"].Value.ToString();
+                string memberUsername = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     int mentorID = getmentorID();
-
-                    string query = "SELECT m.societyname AS Society_Name, m.username As unmae, m.namee AS username, m.position AS position, m.experience AS exp, m.Executive_Council as Ec " +
+                    string query = "SELECT m.societyname AS Society_Name, m.position AS position, m.experience AS exp, m.Executive_Council as Ec " +
                                    "FROM members m " +
-                                   "WHERE m.statuss = 'Approve'  Or m.statuss = 'Suspend' AND " +
+                                   "WHERE m.statuss = 'Approve' Or m.statuss = 'Suspend' AND m.username = @memberUsername AND " +
                                    "EXISTS (SELECT s.societyhead FROM societies s WHERE s.societyname = m.societyname AND s.societymentor = @mentorID)";
+
                     SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@memberUsername", memberUsername);
                     command.Parameters.AddWithValue("@mentorID", mentorID);
 
                     try
                     {
                         connection.Open();
                         SqlDataReader reader = command.ExecuteReader();
+
                         if (reader.Read())
                         {
-                            string memberUsername = reader["unmae"].ToString();
                             MemntorMemberDetails reviewForm = new MemntorMemberDetails(un, memberUsername);
 
                             if (!reader.IsDBNull(reader.GetOrdinal("Ec")))
@@ -118,10 +119,10 @@ namespace WindowsFormsApp1
                             {
                                 reviewForm.textBox2.Text = "NONE";
                             }
+
                             reviewForm.textBox1.Text = memberUsername;
                             reviewForm.txtsocietyhead.Text = reader["position"].ToString();
                             reviewForm.txtsocietycontact.Text = reader["exp"].ToString();
-
                             reviewForm.ShowDialog();
                         }
                     }

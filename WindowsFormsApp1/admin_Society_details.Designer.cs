@@ -86,6 +86,7 @@
             this.txtsocietyRules.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtsocietyRules.Multiline = true;
             this.txtsocietyRules.Name = "txtsocietyRules";
+            this.txtsocietyRules.ReadOnly = true;
             this.txtsocietyRules.Size = new System.Drawing.Size(324, 49);
             this.txtsocietyRules.TabIndex = 42;
             this.txtsocietyRules.TextChanged += new System.EventHandler(this.txtsocietyRules_TextChanged);
@@ -109,6 +110,7 @@
             this.txtsocietycontact.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtsocietycontact.Multiline = true;
             this.txtsocietycontact.Name = "txtsocietycontact";
+            this.txtsocietycontact.ReadOnly = true;
             this.txtsocietycontact.Size = new System.Drawing.Size(324, 49);
             this.txtsocietycontact.TabIndex = 40;
             this.txtsocietycontact.TextChanged += new System.EventHandler(this.txtsocietycontact_TextChanged);
@@ -132,6 +134,7 @@
             this.txtsocietywise.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtsocietywise.Multiline = true;
             this.txtsocietywise.Name = "txtsocietywise";
+            this.txtsocietywise.ReadOnly = true;
             this.txtsocietywise.Size = new System.Drawing.Size(324, 49);
             this.txtsocietywise.TabIndex = 38;
             this.txtsocietywise.TextChanged += new System.EventHandler(this.txtsocietywise_TextChanged);
@@ -155,6 +158,7 @@
             this.txtsocietyhead.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtsocietyhead.Multiline = true;
             this.txtsocietyhead.Name = "txtsocietyhead";
+            this.txtsocietyhead.ReadOnly = true;
             this.txtsocietyhead.Size = new System.Drawing.Size(324, 49);
             this.txtsocietyhead.TabIndex = 36;
             this.txtsocietyhead.TextChanged += new System.EventHandler(this.txtsocietyhead_TextChanged);
@@ -179,6 +183,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(324, 49);
             this.textBox1.TabIndex = 46;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
